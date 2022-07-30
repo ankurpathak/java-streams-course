@@ -22,17 +22,23 @@ public class Lecture8 {
   @Test
   public void groupingAndCounting() throws Exception {
     ArrayList<String> names = Lists
-        .newArrayList(
-            "John",
-            "John",
-            "Mariam",
-            "Alex",
-            "Mohammado",
-            "Mohammado",
-            "Vincent",
-            "Alex",
-            "Alex"
-        );
+            .newArrayList(
+                    "John",
+                    "John",
+                    "Mariam",
+                    "Alex",
+                    "Mohammado",
+                    "Mohammado",
+                    "Vincent",
+                    "Alex",
+                    "Alex"
+            );
+
+    Map<String, Long> groups = names.stream()
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+
+        System.out.println(groups);
 
 
   }

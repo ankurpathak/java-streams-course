@@ -25,13 +25,17 @@ public class Lecture5 {
   public void ourFirstMapping() throws Exception {
     // transform from one data type to another
     List<Person> people = MockData.getPeople();
-
+        people.stream().map(PersonDTO::map)
+                .forEach(System.out::println);
   }
 
   @Test
   public void averageCarPrice() throws Exception {
     // calculate average of car prices
-
+      MockData.getCars().stream().map(Car::getPrice)
+              .mapToDouble(Double::doubleValue)
+              .average()
+              .ifPresent(System.out::println);
   }
 
   @Test

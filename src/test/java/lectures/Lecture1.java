@@ -7,6 +7,7 @@ import beans.Person;
 import com.google.common.collect.ImmutableList;
 import java.io.IOException;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import mockdata.MockData;
@@ -21,6 +22,12 @@ public class Lecture1 {
     List<Person> people = MockData.getPeople();
     // 1. Find people aged less or equal 18
     // 2. Then change implementation to find first 10 people
+
+    people.stream()
+            .filter(it -> it.getAge() <= 18)
+            .skip(3)
+            .limit(10)
+            .forEach(System.out::println);
 
   }
 
